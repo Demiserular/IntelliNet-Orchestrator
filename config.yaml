@@ -1,0 +1,26 @@
+environment: development
+
+database:
+  neo4j:
+    uri: bolt://localhost:7687
+    user: neo4j
+    password: ${NEO4J_PASSWORD}
+
+  metrics:
+    type: sqlite
+    path: ./data/metrics.db
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  cors_origins:
+    - http://localhost
+    - http://localhost:4200
+
+security:
+  jwt_secret: ${JWT_SECRET}
+  token_expiry: 3600
+
+rules:
+  config_path: ./config/rules.json
+  auto_reload: true

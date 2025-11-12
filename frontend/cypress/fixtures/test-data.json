@@ -1,0 +1,56 @@
+{
+  "users": {
+    "admin": {
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
+    },
+    "user": {
+      "username": "user",
+      "password": "user123",
+      "role": "user"
+    }
+  },
+  "devices": [
+    {
+      "id": "TEST-R1",
+      "name": "Test Router 1",
+      "type": "MPLS",
+      "capacity": 100,
+      "location": "DataCenter-1"
+    },
+    {
+      "id": "TEST-R2",
+      "name": "Test Router 2",
+      "type": "MPLS",
+      "capacity": 100,
+      "location": "DataCenter-2"
+    },
+    {
+      "id": "TEST-DWDM1",
+      "name": "Test DWDM Device",
+      "type": "DWDM",
+      "capacity": 400,
+      "location": "DataCenter-1"
+    }
+  ],
+  "links": [
+    {
+      "id": "TEST-LINK-1",
+      "source_device_id": "TEST-R1",
+      "target_device_id": "TEST-R2",
+      "bandwidth": 10,
+      "type": "fiber",
+      "latency": 5
+    }
+  ],
+  "services": [
+    {
+      "service_type": "MPLS_VPN",
+      "source": "TEST-R1",
+      "destination": "TEST-R2",
+      "bandwidth": 5,
+      "latency_requirement": 10
+    }
+  ]
+}

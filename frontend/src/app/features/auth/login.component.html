@@ -1,0 +1,51 @@
+<div class="login-container">
+  <div class="login-card">
+    <h1>IntelliNet Orchestrator</h1>
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-control"
+          [class.is-invalid]="f['username'].invalid && f['username'].touched"
+        />
+        <div class="invalid-feedback" *ngIf="f['username'].invalid && f['username'].touched">
+          Username is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          [class.is-invalid]="f['password'].invalid && f['password'].touched"
+        />
+        <div class="invalid-feedback" *ngIf="f['password'].invalid && f['password'].touched">
+          Password is required
+        </div>
+      </div>
+
+      <div class="error-message" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="loading">
+        <span *ngIf="loading">Logging in...</span>
+        <span *ngIf="!loading">Login</span>
+      </button>
+    </form>
+
+    <div class="demo-credentials">
+      <p><strong>Demo Credentials:</strong></p>
+      <p>Admin: username: <code>admin</code>, password: <code>admin123</code></p>
+      <p>User: username: <code>user</code>, password: <code>user123</code></p>
+    </div>
+  </div>
+</div>
